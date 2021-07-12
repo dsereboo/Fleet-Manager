@@ -1,0 +1,80 @@
+/*NavContent componenet*/
+.side-header{
+    padding-top: 1.7rem;
+    padding-left: 0.7rem;
+    padding-right: 0.5rem;
+    padding-bottom: 1.1rem;
+}
+
+.id-card.row{
+    margin-top: 1.2rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    border-radius: 5%;
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+    padding-left: 1.2rem; 
+    margin-bottom: 1rem;
+    background-color: whitesmoke; 
+}
+  
+.nav-icon-box{
+    margin-top: 2.5rem;
+}
+
+
+.nav-links{
+    padding-left:2rem;
+  
+}
+  
+.icon-row{
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+  
+  
+a.icon-side-spacing{
+    padding-left: 2rem;
+    color:rgb(72,72,72);
+  
+  
+}
+  
+a.icon-side-spacing:hover{
+    text-decoration: none;
+    color: inherit;
+  
+}
+
+.links-list{
+    list-style-type: none;
+    padding-left: 2rem;
+}
+
+.icon-text{
+    padding-left:1.4rem;
+    line-height: 1.57143;
+    font-size: 0.875rem;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+  
+  
+.icon-colour{
+    color: rgb(99, 115, 129);
+   
+}
+
+/*TopDisplayBar component*/
+#stale{
+  
+    margin-left: 0rem;
+    margin-right: 0rem;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
