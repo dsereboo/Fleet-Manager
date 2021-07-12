@@ -67,7 +67,7 @@ const NavContent=()=>{
                 </Link> 
               </Row>
               <Row className="icon-row">
-                <Link to="/" className="icon-side-spacing">  
+                <Link to="/fleet" className="icon-side-spacing">  
                   <svg
                     className="icon-colour"
                     xmlns="http://www.w3.org/2000/svg"

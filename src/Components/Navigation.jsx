@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom"
 import Homepage from "./Homepage"
 import NavContent from "./NavContent"
 import TopDisplayBar from "./TopDisplayBar"
+import Fleet from "./Fleet"
 
 
 
@@ -100,6 +101,7 @@ const Navigation=(props)=>{
                  {/* {!sideDocked && (<Button variant="primary" onClick={toggleOpen}>=</Button>)} */}
                 <TopDisplayBar toggle={toggleOpen}/>
                 <Route path="/home" component={Homepage}/>
+                <Route path="/fleet" component={Fleet}/>
             </Sidebar>
         </BrowserRouter>
     )

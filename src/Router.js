@@ -10,6 +10,7 @@ const Router=()=>{return(
         <Route path="/login" component={TestLogin} />
         <Route path="/signUp" component={TestSignUp}/>
         <Route path="/home" component={Homepage}/>
+        
     </BrowserRouter>
     )    
 }

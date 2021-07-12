@@ -9,13 +9,12 @@ const TestSignUp=(props)=>{
 
     const handleSubmit=(event)=>{
         event.preventDefault()
-        props.signUp(details.name, details.password)
+        props.signUp(details.email, details.password)
         
     }
 
     const handleChange=(event)=>{
         setDetails({...details, [event.target.name]:event.target.value})
-        console.log(details)
     }
 
     return(
