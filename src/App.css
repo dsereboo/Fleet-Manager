@@ -78,3 +78,10 @@ a.icon-side-spacing:hover{
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   }
+
+
+ /*TestLogin and TestSignUp*/
+ .authentication-card{
+     margin-top:5rem;
+     padding-top: 2rem;
+ } 

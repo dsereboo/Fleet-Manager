@@ -6,6 +6,7 @@ import NavContent from "./NavContent"
 import TopDisplayBar from "./TopDisplayBar"
 
 
+
 const mql = window.matchMedia(`(min-width: 800px)`)
 
 const Navigation=(props)=>{
@@ -98,7 +99,7 @@ const Navigation=(props)=>{
             <Sidebar {...sideBarProps}>
                  {/* {!sideDocked && (<Button variant="primary" onClick={toggleOpen}>=</Button>)} */}
                 <TopDisplayBar toggle={toggleOpen}/>
-                <Route path="/" exact component={Homepage}/>
+                <Route path="/home" component={Homepage}/>
             </Sidebar>
         </BrowserRouter>
     )

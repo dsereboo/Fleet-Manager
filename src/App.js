@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Navigation from './Components/Navigation';
+import Router from './Router';
 
 function App() {
   return (
-    <Navigation/>
+    <Router/>
   );
 }
 

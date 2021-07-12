@@ -1,5 +1,7 @@
 import React,{useState} from "react"
 import {Container, Row, Col, Card,Form, Button} from "react-bootstrap"
+import { connect } from "react-redux"
+import { signUp } from "../Actions/authActions"
 
 
 const TestSignUp=(props)=>{
@@ -7,6 +9,7 @@ const TestSignUp=(props)=>{
 
     const handleSubmit=(event)=>{
         event.preventDefault()
+        props.signUp(details.name, details.password)
         
     }
 
@@ -19,7 +22,7 @@ const TestSignUp=(props)=>{
         <Container>
             <Row>
                 <Col md={{offset:3, span:5}}>
-                    <Card>
+                    <Card className="authentication-card">
                         <Card.Title className="text-center"><h4>Sign Up</h4></Card.Title>
                         <Card.Body>
                             <Form onSubmit={handleSubmit}>
@@ -43,5 +46,9 @@ const TestSignUp=(props)=>{
 }
 
 
+const mapDispatchToProps={
+    signUp,
+}
 
-export default TestSignUp
+
+export default connect(null,mapDispatchToProps)(TestSignUp)
