@@ -1,9 +1,11 @@
 import React from "react"
 import {Col,Container, Row}from "react-bootstrap"
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link} from "react-router-dom"
 import Avatar from 'react-avatar';
 
 const NavContent=()=>{
+
+
     return(
         <div>
         <Row className="side-header">

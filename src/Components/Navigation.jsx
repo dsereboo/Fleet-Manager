@@ -1,10 +1,13 @@
 import React,{ useState, useEffect } from "react"
 import Sidebar from "react-sidebar"
-import { BrowserRouter, Route } from "react-router-dom"
+import { BrowserRouter, Route, Switch,useHistory } from "react-router-dom"
 import Homepage from "./Homepage"
 import NavContent from "./NavContent"
 import TopDisplayBar from "./TopDisplayBar"
 import Fleet from "./Fleet"
+import CarProfile from "./CarProfile"
+
+import TestLogin from "./TestLogin"
 
 
 
@@ -94,14 +97,17 @@ const Navigation=(props)=>{
         open: sideBarOpen,
         onSetOpen: onSetSidebarOpen,
     }
-
+    const history=useHistory()
     return(
-        <BrowserRouter>
+        <BrowserRouter basename="/dashboard">
             <Sidebar {...sideBarProps}>
                  {/* {!sideDocked && (<Button variant="primary" onClick={toggleOpen}>=</Button>)} */}
                 <TopDisplayBar toggle={toggleOpen}/>
-                <Route path="/home" component={Homepage}/>
+               <Switch>
+               <Route path="/home" component={Homepage}/>
                 <Route path="/fleet" component={Fleet}/>
+                <Route path="/carProfile" component={CarProfile}/>
+               </Switch>
             </Sidebar>
         </BrowserRouter>
     )
