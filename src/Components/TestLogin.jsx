@@ -1,7 +1,7 @@
 import React,{useState} from "react"
 import {Container, Row, Col,Card,Form, Button} from "react-bootstrap"
 import { connect } from "react-redux"
-import {Link} from "react-router-dom"
+import {Link,Redirect} from "react-router-dom"
 import { googleSignIn, signIn } from "../Actions/authActions"
 
 
@@ -20,6 +20,17 @@ const TestLogin=(props)=>{
 
   const handleSignIn = () => {
     props.googleSignIn()
+  }
+
+  if(!props.auth.isLoaded){
+    return (<h1>Page is loading!...</h1>)
+  }
+
+
+  if( props.auth.isLoaded && !props.auth.isEmpty){
+    return (
+      <Redirect to="/dashboard" />
+    )
   }
 
   return (
@@ -68,5 +79,9 @@ const mapDispatchToProps={
 
 }
 
+const mapStateToProps=(state)=>{
+    return{ auth: state.firebase.auth,}
+}
 
-export default connect(null,mapDispatchToProps)(TestLogin) 
+
+export default connect(mapStateToProps,mapDispatchToProps)(TestLogin) 
