@@ -1,23 +1,21 @@
-import React from "react"
-import { Container, Row,Col } from "react-bootstrap"
+import React, { useEffect } from "react"
+import { Container, Row,} from "react-bootstrap"
+import { connect } from "react-redux"
+import { getCars } from "../Actions/fleetActions"
 import CarCard from "./CarCard"
 
-const Fleet=()=>{
+const Fleet=(props)=>{
+
+    useEffect(
+        ()=>{ props.getCars()},
+        []
+    )
     return(
         <Container className="custom-container">
             <Row>
-                <Col md={{span:3}}>
-                    <CarCard/>
-                </Col>
-                <Col md={3}>
-                    <CarCard/>
-                </Col>
-                <Col md={3}>
-                    <CarCard/>
-                </Col>
-                <Col md={3}>
-                    <CarCard/>
-                </Col>
+               {props.cars.map(
+                   car=>(<CarCard carInfo={car} key={car.id}/>)
+               )}
             </Row>
             
             
@@ -25,4 +23,12 @@ const Fleet=()=>{
     )
 }
 
-export default Fleet
+const mapStateToProps=(state)=>{
+    return{ cars: state.cars.cars}
+}
+
+const mapDispatchToProps={
+    getCars,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Fleet)
