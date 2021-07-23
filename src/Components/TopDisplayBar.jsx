@@ -5,7 +5,7 @@ import Avatar from 'react-avatar';
 const TopDisplayBar=(props)=>{
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <a
-            href="#"
+            href="#link"
             ref={ref}
             onClick={(e) => {
                 e.preventDefault();
