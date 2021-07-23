@@ -29,7 +29,7 @@ const TestLogin=(props)=>{
 
   if( props.auth.isLoaded && !props.auth.isEmpty){
     return (
-      <Redirect to="/dashboard" />
+      <Redirect to="/" />
     )
   }
 

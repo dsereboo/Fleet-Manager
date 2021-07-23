@@ -1,9 +1,14 @@
 import React from "react"
-import {Col,Container, Row}from "react-bootstrap"
+import {Button, Col,Container, Row}from "react-bootstrap"
 import { NavLink, Link} from "react-router-dom"
 import Avatar from 'react-avatar';
+import { signOut } from "../Actions/authActions";
+import { connect } from "react-redux";
 
-const NavContent=()=>{
+const NavContent=(props)=>{
+    const handleClick=()=>{
+        props.signOut()
+    }
 
 
     return(
@@ -97,7 +102,8 @@ const NavContent=()=>{
                   </svg>
                   <span className="icon-text">Notifications</span>
                 </Link> 
-              </Row>           
+              </Row>    
+              <Button variant="primary" onClick={handleClick}>Logout</Button>       
           </Col>
         </Row>
         
@@ -105,4 +111,8 @@ const NavContent=()=>{
     )
 }
 
-export default NavContent
+const mapDispatchToProps={
+  signOut,
+}
+
+export default connect(null, mapDispatchToProps)(NavContent)

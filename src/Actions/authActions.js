@@ -51,3 +51,19 @@ export const googleSignIn=()=>{
         )
     }
 }
+
+export const signOut=()=>{
+    return(dispatch, state, {getFirebase})=>{
+        //Return firebase 
+        const firebase= getFirebase()
+        //Access auth object of firebase which has the function to create a user
+        firebase.auth().signOut()
+        .then(
+            (response)=>{console.log(response)}
+        )
+        .catch(
+            (error)=>{console.log(error)}
+        )
+
+    }
+}

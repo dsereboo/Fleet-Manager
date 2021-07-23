@@ -6,7 +6,7 @@ import TestSignUp from "./Components/TestSignUp"
 
 const Router=()=>{return(
     <BrowserRouter>
-        <ProtectedRoute path="/dashboard" component={Navigation}/>
+        <ProtectedRoute path="/" component={Navigation}/>
         <Route path="/login" component={TestLogin} />
         <Route path="/signUp" component={TestSignUp}/> 
              
