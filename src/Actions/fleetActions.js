@@ -3,7 +3,7 @@ export const getCars = () => {
       //async call to firebase to create project and return the result
       const db = getFirestore();
       //add data to firestore collection using the firestore object
-      db.collection("carList")
+      db.collection("fleet").doc("vehicles").collection("cars")
         .onSnapshot((response) => {
           let cars = [];
           response.forEach((item) => {
