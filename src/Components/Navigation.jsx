@@ -1,13 +1,13 @@
 import React,{ useState, useEffect } from "react"
 import Sidebar from "react-sidebar"
-import { BrowserRouter, Route, Switch,useHistory } from "react-router-dom"
+import { BrowserRouter, Route, Switch,} from "react-router-dom"
 import Homepage from "./Homepage"
 import NavContent from "./NavContent"
 import TopDisplayBar from "./TopDisplayBar"
 import Fleet from "./Fleet"
 import CarProfile from "./CarProfile"
+import DProfileCard from "./DProfileCard"
 
-import TestLogin from "./TestLogin"
 
 
 
@@ -97,7 +97,7 @@ const Navigation=(props)=>{
         open: sideBarOpen,
         onSetOpen: onSetSidebarOpen,
     }
-    const history=useHistory()
+
     return(
         <BrowserRouter basename="/dashboard">
             <Sidebar {...sideBarProps}>
@@ -107,6 +107,7 @@ const Navigation=(props)=>{
                <Route path="/home" component={Homepage}/>
                 <Route path="/fleet" component={Fleet}/>
                 <Route path="/carProfile" component={CarProfile}/>
+                <Route path="/profilecard" component={DProfileCard}/>
                </Switch>
             </Sidebar>
         </BrowserRouter>

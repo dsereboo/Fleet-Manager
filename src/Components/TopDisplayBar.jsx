@@ -1,8 +1,21 @@
 import React from "react"
-import { Navbar,Button,Container,Row,Col,Nav } from "react-bootstrap"
+import { Navbar,Button,Dropdown,Nav } from "react-bootstrap"
 import Avatar from 'react-avatar';
 
 const TopDisplayBar=(props)=>{
+    const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+        <a
+            href="#"
+            ref={ref}
+            onClick={(e) => {
+                e.preventDefault();
+                onClick(e);
+            }}
+        >
+            {children}
+            &#x25bc;
+        </a>
+    ));
     return(
         <Navbar bg="light-custom" expand="sm" className="sticky-top" id="stale">
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={props.toggle} />
@@ -14,14 +27,18 @@ const TopDisplayBar=(props)=>{
 
             <Nav className="ml-auto">
                 <Nav.Link href="#link">
-                    <Container>
-                        <Row>
-                            <Col><p className="style-text"></p></Col>
-                            <Col>
-                            <Avatar name="Avater" size="40" round={true}/>
-                            </Col>
-                        </Row>
-                    </Container>
+                    <Dropdown>
+                        <Dropdown.Toggle className="caret-off" as={CustomToggle} id="dropdown-basic">
+                            <Avatar data-toggle="dropdown" name="Avater" size="40" round={true}/> 
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                                               
                 </Nav.Link>
             </Nav>
         </Navbar>
