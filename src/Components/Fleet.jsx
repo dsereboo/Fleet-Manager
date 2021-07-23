@@ -8,7 +8,7 @@ const Fleet=(props)=>{
 
     useEffect(
         ()=>{ props.getCars()},
-        []
+        [props]
     )
     return(
         <Container className="custom-container">
