@@ -1,5 +1,6 @@
 import React,{useState} from "react"
-import { Container, Row, Image,Col,Card,Modal } from "react-bootstrap"
+import Avatar from "react-avatar";
+import { Container, Row, Image,Col,Card,Modal, Button } from "react-bootstrap"
 import {Link} from "react-router-dom"
 
 
@@ -14,12 +15,28 @@ const CarProfile=()=>{
     
     return(
         <Container className="custom-container">
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Update User</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <h1>Hello there</h1>
+            <Modal show={show} onHide={handleClose} >
+                {/* <Modal.Header closeButton>
+                </Modal.Header> */}
+                <Modal.Body closeButton>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <h5>Profile</h5>
+                                <Avatar  className="mx-auto d-block"  size="120" src="https://firebasestorage.googleapis.com/v0/b/fleet-manager-d1cef.appspot.com/o/241847pKKKz5Rm.png?alt=media&token=4092c971-8274-41a9-8e8b-b2ba2f7ffbea" />
+                                <h3 className="text-center">Daniel Sereboo</h3>
+                                <hr />
+                                <p className="text-muted">Residence</p>
+                                <p>No. 4 Lower Hill Drive,Legon</p>
+                                <hr/>
+                                <p className="text-muted">Phone Number</p>
+                                <p>+233 20 548 0856</p>
+                                <hr/>
+                                <Button className="rounded-button" size="md" block variant="primary">View full profile</Button>
+                            </Col>
+                        </Row>
+                    </Container>
+
                 </Modal.Body>
             </Modal>
 

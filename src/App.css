@@ -122,3 +122,9 @@ a.icon-side-spacing:hover{
  #text{
      display: none;
  }
+
+
+ /*Rounded button*/
+ .rounded-button{
+     border-radius: 20px;
+ }
