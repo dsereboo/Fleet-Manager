@@ -1,16 +1,24 @@
 import React,{useState} from "react"
 import Avatar from "react-avatar";
 import { Container, Row, Image,Col,Card,Modal, Button } from "react-bootstrap"
+import { connect } from "react-redux";
 import {Link} from "react-router-dom"
 
 
 
-const CarProfile=()=>{
+const CarProfile=(props)=>{
 
     const [show, setShow] = useState(false);
+    // const [user,setUser] = useState(
+    //     {
+    //         id:props.cars.car.id,
+    //     }
+    // )
+    
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
 
     
     return(
@@ -45,7 +53,7 @@ const CarProfile=()=>{
                     <Image src="https://res.cloudinary.com/dsereboo/image/upload/v1626125450/toyota-final_ak2c8f.png"/>
                 </Col>
                 <Col md={{span:8, offset:0}} sm={{span:10, offset:1}} xs={{span:9, offset:1}} >
-                    <Row><h3>GR 5756 Z</h3></Row>
+                    <Row><h3>{}</h3></Row>
                     <Row><p className="text-muted">Toyota Vitz</p></Row>
                     <Row><p className="text-muted">2004</p></Row>
                     <Row><p className="text-muted">Daniel A-Sereboo</p></Row>
@@ -92,4 +100,9 @@ const CarProfile=()=>{
     )
 }
 
-export default CarProfile
+const mapStateToProps=(state)=>{
+    console.log(state.cars.cars)
+    return{ cars: state.cars.cars}
+}
+
+export default  connect(mapStateToProps,null)(CarProfile)

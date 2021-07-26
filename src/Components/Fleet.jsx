@@ -24,6 +24,7 @@ const Fleet=(props)=>{
 }
 
 const mapStateToProps=(state)=>{
+    console.log(state.cars.cars)
     return{ cars: state.cars.cars}
 }
 
