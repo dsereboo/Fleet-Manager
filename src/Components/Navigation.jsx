@@ -105,8 +105,9 @@ const Navigation=(props)=>{
                 <TopDisplayBar toggle={toggleOpen}/>
                <Switch>
                <Route path="/home" component={Homepage}/>
-                <Route path="/fleet" component={Fleet}/>
-                <Route path="/carProfile" component={CarProfile}/>
+                <Route exact path="/fleet" component={Fleet}/>
+                <Route path="/fleet/:id" component={CarProfile}/>
+                {/* <Route path="/project/:id" render={(props) => <SingleProject {...props} />} /> */}
                </Switch>
             </Sidebar>
         </BrowserRouter>

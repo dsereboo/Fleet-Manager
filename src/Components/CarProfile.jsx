@@ -1,26 +1,33 @@
-import React,{useState} from "react"
+import React,{useEffect, useState} from "react"
 import Avatar from "react-avatar";
 import { Container, Row, Image,Col,Card,Modal, Button } from "react-bootstrap"
-import { connect } from "react-redux";
-import {Link} from "react-router-dom"
+import { connect, connectAdvanced } from "react-redux";
+import {Link, useParams} from "react-router-dom"
 
 
 
 const CarProfile=(props)=>{
-
+    //State and methods for modal
     const [show, setShow] = useState(false);
-    // const [user,setUser] = useState(
-    //     {
-    //         id:props.cars.car.id,
-    //     }
-    // )
-    
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //Accessing car id from url
+    const {id}=useParams()
 
-    
+    //Finding desired user and updating local state
+    const[chosenCar,setChosenCar]=useState({})
+    const findCar=()=>{
+        let car=(props.cars.filter((item)=>item.id===id))
+        setChosenCar(car[0])
+    }
+
+    console.log(chosenCar.Owner)
+   
+    useEffect(findCar)
+
+
+
     return(
         <Container className="custom-container">
             <Modal show={show} onHide={handleClose} >
@@ -44,7 +51,6 @@ const CarProfile=(props)=>{
                             </Col>
                         </Row>
                     </Container>
-
                 </Modal.Body>
             </Modal>
 
@@ -53,10 +59,10 @@ const CarProfile=(props)=>{
                     <Image src="https://res.cloudinary.com/dsereboo/image/upload/v1626125450/toyota-final_ak2c8f.png"/>
                 </Col>
                 <Col md={{span:8, offset:0}} sm={{span:10, offset:1}} xs={{span:9, offset:1}} >
-                    <Row><h3>{}</h3></Row>
-                    <Row><p className="text-muted">Toyota Vitz</p></Row>
-                    <Row><p className="text-muted">2004</p></Row>
-                    <Row><p className="text-muted">Daniel A-Sereboo</p></Row>
+                    <Row><h3>{chosenCar.id}</h3></Row>
+                    <Row><p className="text-muted">{`${chosenCar.Manufacturer} ${chosenCar.carModel}`}</p></Row>
+                    <Row><p className="text-muted">{chosenCar.modelYear}</p></Row>
+                    <Row><p className="text-muted">{chosenCar.Owner}</p></Row>
                 </Col>
             </Row>
             <hr/>
@@ -101,8 +107,8 @@ const CarProfile=(props)=>{
 }
 
 const mapStateToProps=(state)=>{
-    console.log(state.cars.cars)
     return{ cars: state.cars.cars}
 }
+
 
 export default  connect(mapStateToProps,null)(CarProfile)

@@ -14,7 +14,7 @@ const Fleet=(props)=>{
         <Container className="custom-container">
             <Row>
                {props.cars.map(
-                   car=>(<CarCard carInfo={car} key={car.id}/>)
+                   car=>(<CarCard carInfo={car} carId={car.id} key={car.id}/>)
                )}
             </Row>
             
@@ -24,7 +24,7 @@ const Fleet=(props)=>{
 }
 
 const mapStateToProps=(state)=>{
-    console.log(state.cars.cars)
+    
     return{ cars: state.cars.cars}
 }
 
