@@ -32,6 +32,11 @@
     padding-bottom: 1rem;
     padding-top: 1rem;
 }
+
+.icon-row:hover{
+    background-color:#909090;
+    opacity: 0.98;
+}
   
   
 a.icon-side-spacing{
