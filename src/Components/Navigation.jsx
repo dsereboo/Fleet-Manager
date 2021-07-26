@@ -25,7 +25,8 @@ const Navigation=(props)=>{
         },
         sidebar: {
           zIndex: 1200,
-          background:"#fff",
+          background:"#133e63",
+          /* #1f65a0, #153958 #195384 #133e63*/ 
           position: "absolute",
           top: 0,
           bottom: 0,
@@ -43,7 +44,8 @@ const Navigation=(props)=>{
           bottom: 0,
           overflowY: "auto",
           WebkitOverflowScrolling: "touch",
-          transition: "left .3s ease-out, right .3s ease-out"
+          transition: "left .3s ease-out, right .3s ease-out",
+          backgroundColor:"#f5f5f5",
         },
         overlay: {
           zIndex: 1100,
@@ -104,7 +106,7 @@ const Navigation=(props)=>{
                  {/* {!sideDocked && (<Button variant="primary" onClick={toggleOpen}>=</Button>)} */}
                 <TopDisplayBar toggle={toggleOpen}/>
                <Switch>
-               <Route path="/home" component={Homepage}/>
+               <Route exact path="/" component={Homepage}/>
                 <Route exact path="/fleet" component={Fleet}/>
                 <Route path="/fleet/:id" component={CarProfile}/>
                 {/* <Route path="/project/:id" render={(props) => <SingleProject {...props} />} /> */}

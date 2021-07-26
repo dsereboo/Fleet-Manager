@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react"
 import Avatar from "react-avatar";
 import { Container, Row, Image,Col,Card,Modal, Button } from "react-bootstrap"
-import { connect, connectAdvanced } from "react-redux";
+import { connect,} from "react-redux";
 import {Link, useParams} from "react-router-dom"
 
 
@@ -60,7 +60,7 @@ const CarProfile=(props)=>{
                 </Col>
                 <Col md={{span:8, offset:0}} sm={{span:10, offset:1}} xs={{span:9, offset:1}} >
                     <Row><h3>{chosenCar.id}</h3></Row>
-                    <Row><p className="text-muted">{`${chosenCar.Manufacturer} ${chosenCar.carModel}`}</p></Row>
+                    <Row><p className="text-muted">{`${chosenCar.manufacturer} ${chosenCar.carModel}`}</p></Row>
                     <Row><p className="text-muted">{chosenCar.modelYear}</p></Row>
                     <Row><p className="text-muted">{chosenCar.Owner}</p></Row>
                 </Col>
