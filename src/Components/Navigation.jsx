@@ -6,6 +6,7 @@ import NavContent from "./NavContent"
 import TopDisplayBar from "./TopDisplayBar"
 import Fleet from "./Fleet"
 import CarProfile from "./CarProfile"
+import EditCarProfile from "./EditCarProfile"
 
 
 
@@ -109,6 +110,7 @@ const Navigation=(props)=>{
                <Route exact path="/" component={Homepage}/>
                 <Route exact path="/fleet" component={Fleet}/>
                 <Route path="/fleet/:id" component={CarProfile}/>
+                <Route path="/feet/registration/:id" component={EditCarProfile}/>
                 {/* <Route path="/project/:id" render={(props) => <SingleProject {...props} />} /> */}
                </Switch>
             </Sidebar>
