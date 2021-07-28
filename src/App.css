@@ -134,8 +134,20 @@ a.icon-side-spacing:hover{
      left: -7.2rem;
  }
 
+ @media(min-width:768px){
+    .dropdown-menu.show{
+        position:absolute;
+        left:-7.2rem;
+    }
+ }
+
 
  /*Rounded button*/
  .rounded-button{
      border-radius: 20px;
  }
+
+ /*Car Profile*/
+.action-image{
+    padding-left: 2.7rem;
+}

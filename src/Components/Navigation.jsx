@@ -111,8 +111,8 @@ const Navigation=(props)=>{
                <Switch>
                <Route exact path="/" component={Homepage}/>
                 <Route exact path="/fleet" component={Fleet}/>
-                <Route path="/fleet/:id" component={CarProfile}/>
-                <Route path="/feet/registration/:id" component={EditCarProfile}/>
+                <Route exact path="/fleet/:id" component={CarProfile}/>
+                <Route path="/fleet/registration/:id" component={EditCarProfile}/>
                 {/* <Route path="/project/:id" render={(props) => <SingleProject {...props} />} /> */}
                </Switch>
             </Sidebar>
