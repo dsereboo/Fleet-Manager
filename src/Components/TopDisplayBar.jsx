@@ -1,21 +1,29 @@
 import React from "react"
-import { Navbar,Button,Dropdown,Nav, NavDropdown } from "react-bootstrap"
+import { Navbar,Button,Dropdown,Nav } from "react-bootstrap"
 import Avatar from 'react-avatar';
+import { signOut } from "../Actions/authActions";
+import { connect } from "react-redux";
 
 const TopDisplayBar=(props)=>{
-    // const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-    //     <a
-    //         href="#link"
-    //         ref={ref}
-    //         onClick={(e) => {
-    //             e.preventDefault();
-    //             onClick(e);
-    //         }}
-    //     >
-    //         {children}
-    //         &#x25bc;
-    //     </a>
-    // ));
+    const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+        <a
+            href="#link"
+            ref={ref}
+            onClick={(e) => {
+                e.preventDefault();
+                onClick(e);
+            }}
+        >
+            {children}
+          
+        </a>
+    ));
+
+    const handleClick=()=>{
+        props.signOut()
+    }
+
+
     return(
         <Navbar bg="light-custom" expand="sm" className="sticky-top" id="stale">
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={props.toggle} />
@@ -27,21 +35,34 @@ const TopDisplayBar=(props)=>{
 
             <Nav className="ml-auto">
                 <Nav.Link href="#link">
-                    <NavDropdown id="dropdown-menu-align-left">
-                        <Dropdown.Toggle id="dropdown-basic">
+                    <Dropdown align="start" id="dropdown-menu-align-left">
+                        <Dropdown.Toggle  as={CustomToggle} >
                             <Avatar data-toggle="dropdown" name="Avater" size="40" round={true}/> 
                         </Dropdown.Toggle>
 
-                        <Dropdown.Menu>
+                        <Dropdown.Menu  >
                             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                             <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Divider />
+                            <Dropdown.Item>
+                            <Button variant="default" onClick={handleClick}>
+                                Logout
+                            </Button>
+                            </Dropdown.Item>
                         </Dropdown.Menu>
-                    </NavDropdown>
+                    </Dropdown>
                                                
                 </Nav.Link>
             </Nav>
         </Navbar>
     )
 }
-export default TopDisplayBar
+
+
+const mapDispatchToProps={
+    signOut,
+}
+
+
+export default  connect(null, mapDispatchToProps)(TopDisplayBar)

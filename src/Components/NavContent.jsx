@@ -1,20 +1,15 @@
 import React from "react"
-import {Button, Card, Col,Container, Row}from "react-bootstrap"
+import {Col, Row}from "react-bootstrap"
 import { NavLink, Link} from "react-router-dom"
-import Avatar from 'react-avatar';
-import { signOut } from "../Actions/authActions";
-import { connect } from "react-redux";
+// import Avatar from 'react-avatar';
+
 
 const NavContent=(props)=>{
-    const handleClick=()=>{
-        props.signOut()
-    }
-
-
+   
     return (
       <div>
         <Row className="side-header">
-          <h4>FLEET MANAGER</h4>
+          <h4 className="brand">FLEET MANAGER</h4>
         </Row>
         {/* <Row >
          
@@ -91,17 +86,12 @@ const NavContent=(props)=>{
                 <span className="icon-text">Notifications</span>
               </Link>
             </Row>
-            <Button variant="primary" onClick={handleClick}>
-              Logout
-            </Button>
           </Col>
         </Row>
       </div>
     );
 }
 
-const mapDispatchToProps={
-  signOut,
-}
 
-export default connect(null, mapDispatchToProps)(NavContent)
+
+export default NavContent
