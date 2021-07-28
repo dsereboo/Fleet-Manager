@@ -10,7 +10,7 @@ const CarCard=(props)=>{
        <Col md={{span:3,}}>
             <Card className="car-card">
                 <Card.Img variant="top" className="img-responsive image-border" src={props.carInfo.image} />
-                <Card.Body>
+                <Card.Body className="card-border">
                     <Card.Title ><Link to={`/fleet/${props.carId}`} className="stretched-link">{props.carInfo.id}</Link></Card.Title>
                     <Card.Text>
                       {props.carInfo.Owner}

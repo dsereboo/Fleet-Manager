@@ -31,11 +31,12 @@ const Navigation=(props)=>{
           position: "absolute",
           top: 0,
           bottom: 0,
-          width: 240,
+          width: 260,
           transition: "transform .3s ease-out",
           WebkitTransition: "-webkit-transform .3s ease-out",
           willChange: "transform",
-          overflowY: "auto"
+          overflowY: "auto",
+          overflowX:"hidden",
         },
         content: {
           position: "absolute",
@@ -44,6 +45,7 @@ const Navigation=(props)=>{
           right: 0,
           bottom: 0,
           overflowY: "auto",
+          overflowX:"inherit",
           WebkitOverflowScrolling: "touch",
           transition: "left .3s ease-out, right .3s ease-out",
           backgroundColor:"#f5f5f5",

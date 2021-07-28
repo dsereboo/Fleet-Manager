@@ -1,5 +1,5 @@
 import React from "react"
-import {Button, Col,Container, Row}from "react-bootstrap"
+import {Button, Card, Col,Container, Row}from "react-bootstrap"
 import { NavLink, Link} from "react-router-dom"
 import Avatar from 'react-avatar';
 import { signOut } from "../Actions/authActions";
@@ -16,8 +16,15 @@ const NavContent=(props)=>{
         <Row className="side-header">
           <h4>FLEET MANAGER</h4>
         </Row>
-        <Row className="id-card">
-          <Container>
+        {/* <Row >
+         
+          <Col md={12}>
+            <Row className="id-card">
+              <Avatar name="Avater" size="40" round={true} />
+              <span className="icon-text">Name</span>
+            </Row>     
+          </Col>
+          {/* <Container>
             <Row>
               <Col md={4}>
                 <Avatar name="Avater" size="40" round={true} />
@@ -26,8 +33,8 @@ const NavContent=(props)=>{
                 <p>Name</p>
               </Col>
             </Row>
-          </Container>
-        </Row>
+          </Container> 
+        </Row> */}
         <Row className="nav-icon-box">
           <Col md={12} className="nav-links">
             <Row className="icon-row">

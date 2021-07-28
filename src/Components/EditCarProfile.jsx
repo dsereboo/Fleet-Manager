@@ -17,7 +17,7 @@ const EditCarProfile=(props)=>{
 
     useEffect(findCar)
     return(
-        <Container>
+        <Container className="custom-container">
              <Row>
                 <Col md={{span:4, offset:0}} sm={{span:10, offset:1}}>
                     <Image src="https://res.cloudinary.com/dsereboo/image/upload/v1626125450/toyota-final_ak2c8f.png"/>
