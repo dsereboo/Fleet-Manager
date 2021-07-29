@@ -102,7 +102,7 @@ const CarProfile=(props)=>{
                 <Col md={{span:3, offset:0}} xs={{span:9, offset:1}}>
                 <Card className="car-card">  
                         <Card.Body>
-                        <img className="action-image" alt="details" src="https://firebasestorage.googleapis.com/v0/b/fleet-manager-d1cef.appspot.com/o/2323353EFa4BVPd.png?alt=media&token=5760f868-1582-4f18-8a52-7474e658e4e4"/>
+                        <img className="action-image" alt="details" src="https://firebasestorage.googleapis.com/v0/b/fleet-manager-d1cef.appspot.com/o/28225737iEf9GSCM.png?alt=media&token=19011766-acfe-463b-9fda-0b7fbbd83375"/>
                         <Card.Title className="text-center" ><Link to={`/fleet/registration/${id}`} className="stretched-link">Registration</Link></Card.Title>
                         </Card.Body>
                     </Card>
