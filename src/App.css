@@ -134,7 +134,7 @@ a.icon-side-spacing:hover{
      left: -7.2rem;
  }
 
- @media(min-width:768px){
+ @media(max-width:768px){
     .dropdown-menu.show{
         position:absolute;
         left:-7.2rem;
@@ -151,4 +151,9 @@ a.icon-side-spacing:hover{
 .action-image{
     padding-left: 2.7rem;
     padding-bottom: 0.7rem;
+}
+
+/*Edit Car Profile component*/
+.form-control-plaintext{
+    background-color: "#fff";
 }

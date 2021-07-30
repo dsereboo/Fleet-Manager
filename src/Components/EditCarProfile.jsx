@@ -25,11 +25,37 @@ const EditCarProfile=(props)=>{
 
     const{id}=useParams()
 
+    const[editStyle, setEditStyle]=useState(true)
+
+    const handleEdit=()=>{
+        setEditStyle(false)
+    }
+    const handleComplete=()=>{
+        setEditStyle(true)
+    }
 
     const[chosenCar,setChosenCar]=useState({})
+
+    
+
     const findCar=()=>{
         let car=(props.cars.filter((item)=>item.id===id))
+        const [object]=car
+        console.log(object.Owner)
         setChosenCar(car[0])
+    }
+
+    const[carDetails, setCarDetails]=useState({
+        modelYear:chosenCar.modelYear,
+    })
+
+    console.log(carDetails)
+
+   
+    
+
+    const handleChange=(event)=>{
+        setCarDetails({...carDetails, [event.target.name]:event.target.value})
     }
     
 
@@ -57,25 +83,25 @@ const EditCarProfile=(props)=>{
                         <Form.Group as={Row}>
                            <Form.Label column md="3" xs="4">Car No.</Form.Label> 
                            <Col md="9" xs="8">
-                                <Form.Control value={chosenCar.id} plaintext type="text" />
+                                <Form.Control name="id" onMouseLeave={handleComplete} onChange={handleChange} onClick={handleEdit} defaultValue={chosenCar.id} plaintext={editStyle} type="text" />
                            </Col>
                         </Form.Group>
                         <Form.Group as={Row}>
                            <Form.Label column md="3" xs="4">Car Make.</Form.Label> 
                            <Col md="9" xs="8">
-                                <Form.Control value={`${chosenCar.manufacturer} ${chosenCar.carModel}`} plaintext type="text" />
+                                <Form.Control onMouseLeave={handleComplete} value={`${chosenCar.manufacturer} ${chosenCar.carModel}`} plaintext type="text" />
                            </Col>
                         </Form.Group>
                         <Form.Group as={Row}>
                            <Form.Label column md="3" xs="4">Model Year</Form.Label> 
                            <Col md="9" xs="8">
-                                <Form.Control value={chosenCar.modelYear} plaintext type="text" />
+                                <Form.Control onMouseLeave={handleComplete} name="modelYear" onChange={handleChange}  defaultValue={chosenCar.modelYear} plaintext  type="text" />
                            </Col>
                         </Form.Group>
                         <Form.Group as={Row}>
                            <Form.Label column md="3" xs="4">Chasis Number</Form.Label> 
                            <Col md="9" xs="8">
-                                <Form.Control value={chosenCar.chasisNumber} plaintext type="text" />
+                                <Form.Control onMouseLeave={handleComplete} value={chosenCar.chasisNumber} plaintext type="text" />
                            </Col>
                         </Form.Group>
                     </Form>
@@ -91,13 +117,13 @@ const EditCarProfile=(props)=>{
                         <Form.Group as={Row}>
                            <Form.Label column md="3" xs="4">Name</Form.Label> 
                            <Col md="9" xs="8">
-                                <Form.Control placeholder="GR 5756 Z" plaintext type="text" />
+                                <Form.Control onMouseLeave={handleComplete} placeholder="GR 5756 Z" plaintext type="text" />
                            </Col>
                         </Form.Group>
                         <Form.Group as={Row}>
                            <Form.Label column md="3" xs="4">Name</Form.Label> 
                            <Col md="9" xs="8">
-                                <Form.Control placeholder="GR 5756 Z" plaintext type="text" />
+                                <Form.Control onMouseLeave={handleComplete} placeholder="GR 5756 Z" plaintext type="text" />
                            </Col>
                         </Form.Group>
                     </Form>
@@ -113,7 +139,7 @@ const EditCarProfile=(props)=>{
                         <Form.Group as={Row}>
                            <Form.Label column md="3" >Car No.</Form.Label> 
                            <Col md="9">
-                                <Form.Control placeholder="GR 5756 Z" plaintext type="text" />
+                                <Form.Control onMouseLeave={handleComplete} placeholder="GR 5756 Z" plaintext type="text" />
                            </Col>
                         </Form.Group>
                         <Form.Group as={Row}>
