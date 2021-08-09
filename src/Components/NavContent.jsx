@@ -1,10 +1,22 @@
 import React from "react"
 import {Col, Row}from "react-bootstrap"
-import { NavLink, Link} from "react-router-dom"
+import { NavLink, Link,useLocation} from "react-router-dom"
+
 // import Avatar from 'react-avatar';
 
 
 const NavContent=(props)=>{
+    //assigning location variable
+    const location = useLocation();
+
+    //destructuring pathname from location
+    const { pathname } = location;
+
+    //Javascript split method to get the name of the path in array
+    const splitLocation = pathname.split("/");
+    console.log(splitLocation[1])
+
+    const row="icon-row"
    
     return (
       <div>
@@ -32,8 +44,8 @@ const NavContent=(props)=>{
         </Row> */}
         <Row className="nav-icon-box">
           <Col md={12} className="nav-links">
-            <Row className="icon-row">
-              <NavLink to="/" className="icon-side-spacing">
+            <Row className={splitLocation[1] === "" ? `selected ${row}` : `${row}`}>
+              <Link exact to="/"  className="icon-side-spacing">
                 <svg width="24px" height="24px" viewBox="0 0 24 24">
                   <path
                     fill="rgba(255,255,255,.8)"
@@ -41,10 +53,10 @@ const NavContent=(props)=>{
                   />
                 </svg>
                 <span className="icon-text">Home</span>
-              </NavLink>
+              </Link>
             </Row>
-            <Row className="icon-row">
-              <Link to="/finances" className="icon-side-spacing">
+            <Row className={splitLocation[1] === "finances" ? `selected ${row}` : `${row}`}>
+              <Link to="/finances"   className="icon-side-spacing">
                 <svg
                   className="icon-colour"
                   xmlns="http://www.w3.org/2000/svg"
@@ -64,8 +76,8 @@ const NavContent=(props)=>{
                 <span className="icon-text">Finances</span>
               </Link>
             </Row>
-            <Row className="icon-row">
-              <Link to="/fleet" className="icon-side-spacing">
+            <Row className={splitLocation[1] === "fleet" ? `selected ${row}` : `${row}`}>
+              <NavLink to="/fleet"  className="icon-side-spacing">
                 <svg width="24px" height="24px" viewBox="0 0 24 24">
                   <path
                     fill="#f6f6f6"
@@ -73,10 +85,10 @@ const NavContent=(props)=>{
                   />
                 </svg>
                 <span className="icon-text">Fleet</span>
-              </Link>
+              </NavLink>
             </Row>
-            <Row className="icon-row">
-              <Link to="/notifications" className="icon-side-spacing">
+            <Row  className={splitLocation[1] === "notifications" ? `selected ${row}` : `${row}`}>
+              <NavLink exact to="/notifications"  className="icon-side-spacing">
                 <svg width="24px" height="24px" viewBox="0 0 24 24">
                   <path
                     fill="#f6f6f6"
@@ -84,7 +96,7 @@ const NavContent=(props)=>{
                   />
                 </svg>
                 <span className="icon-text">Notifications</span>
-              </Link>
+              </NavLink>
             </Row>
           </Col>
         </Row>
